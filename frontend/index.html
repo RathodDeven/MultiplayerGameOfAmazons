@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
         
         <style>
         #gameScreen {
@@ -24,7 +24,7 @@
             <div  class="white-turn-text mobile">
                 White's Turn
             </div>
-            <table>
+            <table id="board">
                 <tr>
                     <th class="notations_cornor"></th>
                     <th class="notations_hor">a</th><th class="notations_hor">b</th>
@@ -161,33 +161,34 @@
             </div>
             
         </div>
-        
-        <div id="initialScreen">
-        <div class="d-flex flex-column align-items-center justify-content-center h-100">
-            <h1>Multiplayer Snake</h1>
-            <div class="form-group">
-                <input type="text" placeholder="Enter Your Name" id="userName"/>
-                </div>
+        <div class="wrapper"  id="initialScreen">
+        <form class="form" action="">
+
+            <div class="pageTitle title">Game Of Amazons</div>
+            <input type="text" class="email formEntry" placeholder="Player Name" id="userName"/>
+                
             <button
-                type="submit"
-                class="btn btn-success"
+                type="button"
+                class="submit formEntry"
                 id="newGameButton"
             >
                 Create New Game
             </button>
-            <div>OR</div>
-            <div class="form-group">
-                <input type="text" placeholder="Enter Game Code" id="gameCodeInput"/>
-            </div>
+            
+            <div class="secondryTitle title"> OR</div>
+                <input type="text" class="email formEntry" id="gameCodeInput"/>
+            
             <button
-                type="submit"
-                class="btn btn-success"
+                type="button"
+                class="submit formEntry"
                 id="joinGameButton"
             >
                 Join Game
             </button>
+            
+        </form>
         </div>
-        </div>
+    </div>
             
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
