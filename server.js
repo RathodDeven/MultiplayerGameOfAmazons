@@ -5,7 +5,7 @@ const socketio = require('socket.io')
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-app.use(express.static(path.join(__dirname,'..','frontend')))
+app.use(express.static(path.join(__dirname,'frontend')))
 
 
 const {makeid} = require('./utils');
