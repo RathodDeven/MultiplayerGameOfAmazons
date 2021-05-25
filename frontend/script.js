@@ -51,10 +51,6 @@ function handleGameCode(roomName){
     gameCodeDisplay.innerText = roomName;
 }
 
-
-
-
-
 function handleInit(number){
     playerNumber = number;
 }
@@ -104,11 +100,6 @@ function init() {
     gameScreen.style.display = "block";
     gameActive = true;
   }
-
-
-
-
-
 
   const board = [
     null,null,null,1,null,null,2,null,null,null,
@@ -173,12 +164,13 @@ function getPlayerPieces(event){
 function removeCellonClick(){
     for(let i=0;i<cells.length;i++){
         cells[i].removeAttribute("onclick");
+        cells[i].style.cursor = 'default';
     }
 }
 
 function resetBorders(){
     for(let i =0;i<playerPieces.length;i++){
-        playerPieces[i].style.border = "1px solid white";
+        playerPieces[i].style.border = "3px solid white";
         
     }
     resetSelectedPieceProperties();
@@ -377,6 +369,7 @@ function giveCellsClickForBlock(){
     if(available_moves.length !== 0){
         for(let i=0;i<available_moves.length;i++){
             cells[available_moves[i]].setAttribute("onclick",`makeMoveForBlock(${available_moves[i]})`);
+            cells[available_moves[i]].style.cursor = 'pointer';
         }
     }
     else{
@@ -387,6 +380,7 @@ function giveCellsClickForBlock(){
 function giveCellsClick(){
     for(let i=0;i<available_moves.length;i++){
         cells[available_moves[i]].setAttribute("onclick",`makeMove(${available_moves[i]})`);
+        cells[available_moves[i]].style.cursor = 'pointer';
     }
 }
 

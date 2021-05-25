@@ -197,11 +197,14 @@ div {
 
 .black-piece{
     display: inline;
+    cursor: pointer;
 }
 
 .white-piece{
     display: inline;
+    cursor: pointer;
 }
+
 
 
 .notations_ver{
