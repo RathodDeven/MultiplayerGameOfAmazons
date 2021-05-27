@@ -20,6 +20,10 @@ let blackPieces = document.querySelectorAll(".black-piece");
 const whiteTurnText = document.querySelectorAll(".white-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
 const divider = document.querySelector("#divider")
+const player1div = document.getElementById('player1');
+const player2div = document.getElementById('player2');
+const namediv = document.getElementById('name_div');
+const gameCodeDiv = document.getElementById('game_code_div');
 
 
 newGameBtn.addEventListener('click',newGame);
@@ -38,6 +42,18 @@ socket.on('White_won',handleWhiteWon);
 socket.on('Black_won',handleBlackWon);
 socket.on('ChangePlayer',changePlayer);
 socket.on('y',y);
+socket.on('div_name',handlediv_name);
+
+function handlediv_name({player1,player2}){
+    
+    player1div.innerText = player1 + `'s` + 'Turn';
+    player2div.innerText = player2 + `'s` + 'Turn';
+    gameCodeDiv.style.display = "none";
+    namediv.style.display = "block";
+    namediv.style.display = "flex";
+    namediv.style.justifyContent = "space-between";
+
+}
 
 
 

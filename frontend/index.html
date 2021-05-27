@@ -20,9 +20,14 @@
     <body>
         <div id="gameScreen">
         
-            <h1>Your game code is: <span id="gameCodeDisplay"></span></h1>
+            <h1 id="game_code_div">Your game code is: <span id="gameCodeDisplay"></span></h1>
             <div  class="white-turn-text mobile">
                 White's Turn
+            </div>
+            <div class="desktop" style="display: none;" id="name_div">
+                <div class="white-turn-text" id="player1">White's Turn</div>
+                <div id="divider">|</div>
+                <div class="black-turn-text" id="player2">Black's Turn</div>
             </div>
             <table id="board">
                 <tr>

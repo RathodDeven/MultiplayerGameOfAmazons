@@ -77,12 +77,16 @@ io.on('connection',client =>{
           client.emit('tooManyPlayers');
           return;
         }
+        let player1 = allUsers[0].username;
+        let player2 = name;
     
         const user = userJoin(client.id,name,room);
         client.emit('gameCode',user.room);
         client.join(user.room);
         client.number = 2;
         client.emit('init', 2);
+        
+        io.to(user.room).emit('div_name',{player1,player2});
 
 
         client.broadcast
