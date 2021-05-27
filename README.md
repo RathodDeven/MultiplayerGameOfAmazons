@@ -24,10 +24,10 @@ White moves first, and the players alternate moves thereafter. Each move consist
 
 ### You can play right now with your friends using https://fathomless-falls-01438.herokuapp.com/
 
-![ss](Screenshot (161).png)
+![ss](Capture0.png)
 
-![ss1](Screenshot (162).png)
+![ss1](Capture1.png)
 
-![ss2](Screenshot (163).png)
+![ss2](Capture2.png)
 
-![ss3](Screenshot (164).png)
+![ss3](Capture3.png)
