@@ -177,6 +177,11 @@ td{
     margin-left: 15px;
     margin-right: 15px;
 }
+#divider_bottom{
+  font-size: 55px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 
 .lightsquare{
     background-color: #f0d2b4;

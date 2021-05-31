@@ -24,6 +24,12 @@ const player1div = document.getElementById('player1');
 const player2div = document.getElementById('player2');
 const namediv = document.getElementById('name_div');
 const gameCodeDiv = document.getElementById('game_code_div');
+const bottomDiv = document.getElementById('bottom_div');
+
+const piece_move_audio = new Audio('Piece_Move_sound.mp3');
+piece_move_audio.volume = 0.3;
+const block_move_audio = new Audio('Block_Move_sound.mp3');
+block_move_audio.volume = 0.3;
 
 
 newGameBtn.addEventListener('click',newGame);
@@ -44,15 +50,20 @@ socket.on('ChangePlayer',changePlayer);
 socket.on('y',y);
 socket.on('div_name',handlediv_name);
 
+
+let player1_name = '';
+let player2_name = '';
+
 function handlediv_name({player1,player2}){
     
-    player1div.innerText = player1 + `'s` + 'Turn';
-    player2div.innerText = player2 + `'s` + 'Turn';
+    player1div.innerText = player1 + `'s` + ' Turn';
+    player2div.innerText = player2 + `'s` + ' Turn';
     gameCodeDiv.style.display = "none";
     namediv.style.display = "block";
     namediv.style.display = "flex";
     namediv.style.justifyContent = "space-between";
-
+    player1_name = player1;
+    player2_name = player2;
 }
 
 
@@ -403,6 +414,7 @@ function giveCellsClick(){
 function handleMakeMoveForBlock(number){
     cells[number].innerHTML = `<span class="circle"></span>`;
     board[number] = -1;
+    block_move_audio.play();
 }
 
 function makeMoveForBlock(number){
@@ -411,7 +423,6 @@ function makeMoveForBlock(number){
     removeCellonClick();
     secondmove = false;
     checkForWin();
-    
 }
 
 function handleWhiteWon(){
@@ -419,7 +430,9 @@ function handleWhiteWon(){
     for(let i=0;i<whiteTurnText.length;i++){
         whiteTurnText[i].style.color = "black";
         blackTurnText[i].style.display = "none";
-        whiteTurnText[i].textContent = "White WINS!!";
+        whiteTurnText[i].textContent = `${player1_name} Wins..!`;
+        divider.style.display = "none";
+        bottomDiv.style.display = "none";
         let btn = document.createElement("button");
         btn.innerHTML = "Play Again";
         btn.setAttribute("onclick","location.reload()");
@@ -431,11 +444,12 @@ function handleBlackWon(){
     for(let i=0;i<blackTurnText.length;i++){
         blackTurnText[i].style.color = "black";
         whiteTurnText[i].style.display = "none";
-        blackTurnText[i].textContent = "Black WINS!!"
+        blackTurnText[i].textContent = `${player2_name} Wins..!`;
         let btn = document.createElement("button");
         btn.innerHTML = "Play Again";
         btn.setAttribute("onclick","location.reload()");
         blackTurnText[i].appendChild(btn);
+        
     }
 }
 function checkForWin(){
@@ -502,9 +516,8 @@ function handlemakeMove(data){
         cells[piece.number].innerHTML = `<div class="black-piece" id="${piece.selectedPiece.pieceID}">♛</div>`;
         board[piece.number] = piece.selectedPiece.pieceID;
         blackPieces = document.querySelectorAll(".black-piece");
-        
     }
-    
+    piece_move_audio.play()
 }
 
 

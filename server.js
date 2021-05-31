@@ -64,7 +64,6 @@ io.on('connection',client =>{
         console.log(room);
         console.log(name);
         allUsers = getRoomUsers(room);
-        console.log(allUsers);
 
         let numClients = 0;
         numClients = allUsers.length;
