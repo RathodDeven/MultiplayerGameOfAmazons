@@ -163,6 +163,7 @@ let selectedPiece = {
 
 //initailize event listeners on pieces
 function givePiecesEventListeners(){
+    checkForWin();
     if(turn){
         for(let i=0;i< whitePieces.length;i++){
             whitePieces[i].addEventListener("click",getPlayerPieces);
@@ -219,7 +220,6 @@ function getSelectedPiece(){
     resetSelectedPieceProperties();
     selectedPiece.pieceID = parseInt(temp_id);
     selectedPiece.x_pos = findx(temp_id);
-    
     selectedPiece.y_pos = findy(temp_id);
     
     getAvailablePieces();
@@ -422,7 +422,7 @@ function makeMoveForBlock(number){
     resetSelectedPieceProperties();
     removeCellonClick();
     secondmove = false;
-    checkForWin();
+    socket.emit('ChangePlayer');
 }
 
 function handleWhiteWon(){
@@ -456,24 +456,24 @@ function checkForWin(){
     let temp_flag;
     let arr;
     if(turn){
-        arr = [1,2,3,4]
-        temp_flag = checkifmovesavailable(arr);
-        if(temp_flag){
-            socket.emit('White_won');
-        }
-    }else{
         arr = [5,6,7,8];
-        temp_flag = checkifmovesavailable(arr);
+        temp_flag = checkIfMovesNotAvailable(arr);
         if(temp_flag){
             socket.emit('Black_won');
         }
-    }
-    if(!temp_flag){
-        socket.emit('ChangePlayer');
+        
+    }else{
+        arr = [1,2,3,4]
+        temp_flag = checkIfMovesNotAvailable(arr);
+        if(temp_flag){
+            socket.emit('White_won');
+        }
+        
     }
     
+    
 }
-function checkifmovesavailable(arr){
+function checkIfMovesNotAvailable(arr){
     let x;
     let y;
     let temp_x;
