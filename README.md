@@ -24,17 +24,10 @@ White moves first, and the players alternate moves thereafter. Each move consist
 
 ### You can play right now with your friends using https://gameofamazonsbyrd.herokuapp.com/
 
-![ss](Screenshot (182).png)
-
-![ss](Screenshot (183).png)
-
-![ss](Screenshot (184).png)
-
-![ss](Screenshot (185).png)
-
-![ss](Screenshot (186).png)
-
-![ss](Screenshot (187).png)
-
-![ss](Screenshot (188).png)
+![ss](s1.png)
+![ss](s2.png)
+![ss](s3.png)
+![ss](s4.png)
+![ss](s5.png)
+![ss](s6.png)
 
