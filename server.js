@@ -11,8 +11,6 @@ app.use(express.static(path.join(__dirname,'frontend')))
 const {makeid} = require('./utils');
 const {userJoin,getUser,userLeave,getRoomUsers} = require('./users');
 
-
-
 io.on('connection',client =>{
     
     client.on('newGame', handleNewGame);
